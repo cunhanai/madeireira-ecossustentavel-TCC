@@ -47,12 +47,18 @@ public class MadeiraController {
 		Iterable<Reflorestamento> reflorestamento = reflorestRepository.findAll();
 		mv.addObject("reflorestamento", reflorestamento);
 		
-		double numMadeira = 0;
+		double nd = 0;
 		for (Madeira madeira : madeiras) {
-			numMadeira += madeira.getQtdeMCubicos();
+			nd += madeira.getQtdeMCubicos();
 		}
-		mv.addObject("numMadeira", numMadeira);
-	
+		mv.addObject("nd", nd);
+		
+		double nr = 0;
+		for (Reflorestamento reflo : reflorestamento) {
+			nr += reflo.getQtdeMCubicos();
+		}
+		mv.addObject("nr", nr);
+		
 		
 		return mv;
 	}
