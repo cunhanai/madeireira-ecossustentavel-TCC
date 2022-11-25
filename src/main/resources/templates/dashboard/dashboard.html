@@ -98,13 +98,20 @@
 			</div>
 			<!-- header area end -->
 			<!-- page title area start -->
+
+			<script th:inline="javascript">
+				/*<![CDATA[*/
+				var listReflo = /*[[${reflorestamento}]]*/"Test";
+				var listMadeiras = /*[[${madeiras}]]*/"Test";
+				/*]]>*/
+			</script>
 			<div class="page-title-area">
 				<div class="row align-items-center">
 					<div class="col-sm-6">
 						<div class="breadcrumbs-area clearfix">
 							<h4 class="page-title pull-left">Dashboard</h4>
 							<ul class="breadcrumbs pull-left">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="/">Home</a></li>
 								<li><span>Dashboard</span></li>
 							</ul>
 						</div>
@@ -113,13 +120,12 @@
 						<div class="user-profile pull-right">
 							<img class="avatar user-thumb"
 								src="assets/images/author/avatar.png" alt="avatar">
-							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-								Cedup<i class="fa fa-angle-down"></i>
+							<h4  class="user-name dropdown-toggle" data-toggle="dropdown">
+								<span th:text="${nomeUser}"></span>
+								<i class="fa fa-angle-down"></i>
 							</h4>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Message</a> <a
-									class="dropdown-item" href="#">Settings</a> <a
-									class="dropdown-item" href="#">Log Out</a>
+								<a class="dropdown-item" href="/logout">Logout</a>
 							</div>
 						</div>
 					</div>
@@ -147,17 +153,13 @@
 					</div>
 
 					<!-- Reflorestamento area start -->
-					<div class="col-xl-4 col-lg-5 mt-5">
+					<div class="col-xl-4 col-lg-5 mt-6">
 						<div class="card h-full">
 							<div class="card-body">
 								<h4 class="header-title">Reflorestamento Geral</h4>
-								<script th:inline="javascript">
-									/*<![CDATA[*/
-									var listReflo = /*[[${reflorestamento}]]*/"Test";
-									var listMadeiras = /*[[${madeiras}]]*/"Test";
-									/*]]>*/
-								</script>
+
 								<canvas id="seolinechart8" height="233"></canvas>
+
 							</div>
 						</div>
 					</div>
@@ -190,12 +192,12 @@
 									<div class="table-responsive">
 										<table class="dbkit-table">
 											<tr class="heading-td">
-												<td>Data</td>
-												<td>Tipo de Madeira</td>
-												<td>Quantidade (m²)</td>
-												<td>Refinada</td>
-												<td>Reflo. necessário</td>
-												<td>Responsável</td>
+												<td><strong>Data</strong></td>
+												<td><strong>Tipo de Madeira</strong></td>
+												<td><strong>Quantidade (m²)</strong></td>
+												<td><strong>Refinada</strong></td>
+												<td><strong>Reflo. necessário</strong></td>
+												<td><strong>Responsável</strong></td>
 											</tr>
 											<tr th:each="madeira : ${madeiras}">
 												<td><span
@@ -205,7 +207,9 @@
 												<td><span th:if="${madeira.refinada}">Refinada</span> <span
 													th:unless="${madeira.refinada}">Não refinada</span></td>
 												<td><span th:text="${madeira.reflorestamento}"></span></td>
-												<td><span th:text="${madeira.userResp}"></span></td>
+												<td >
+													<span th:text="${madeira.userResp.nomeCompleto}"></span>
+												</td>
 											</tr>
 										</table>
 									</div>
@@ -214,17 +218,19 @@
 									<div class="table-responsive">
 										<table class="dbkit-table">
 											<tr class="heading-td">
-												<td>Data</td>
-												<td>Tipo de Madeira</td>
-												<td>Quant. Reflo. (m²)</td>
-												<td>Responsável</td>
+												<td><strong>Data</strong></td>
+												<td><strong>Tipo de Madeira</strong></td>
+												<td><strong>Quant. Reflo. (m²)</strong></td>
+												<td><strong>Responsável</strong></td>
 											</tr>
 											<tr th:each="reflo : ${reflorestamento}">
 												<td><span
 													th:text="${#temporals.format(reflo.dataHora, 'yyyy-MM-dd HH:mm')}"></span></td>
 												<td><span th:text="${reflo.tipo}"></span></td>
 												<td><span th:text="${reflo.qtdeMCubicos}"></span></td>
-												<td><span th:text="${reflo.userResp}"></span></td>
+												<td >
+													<span th:text="${reflo.userResp.nomeCompleto}"></span>
+												</td>
 											</tr>
 										</table>
 									</div>
@@ -244,8 +250,9 @@
 	<footer>
 		<div class="footer-area">
 			<p>
-				© Copyright 2018. All right reserved. Template by <a
-					href="https://colorlib.com/wp/">Colorlib</a>.
+				© Copyright 2022. All right reserved. By <a
+					href="http://www.ceduphh.com.br">Cedup Hermann Hering</a>'s
+				students.
 			</p>
 		</div>
 	</footer>

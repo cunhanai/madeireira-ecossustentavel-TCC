@@ -176,5 +176,7 @@ public class Madeira implements Serializable {
 	public void calcularReflorestamento() {
 		this.reflorestamento = this.qtdeMCubicos * 2;
 	}
+	
+	
 
 }

@@ -41,11 +41,17 @@ public class MadeiraController {
 	public ModelAndView dashboard() {
 		ModelAndView mv = new ModelAndView("dashboard/dashboard");
 		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usuario = auth.getName();
+		mv.addObject("nomeUser", ur.findByLogin(usuario).getNomeCompleto());
+		
 		Iterable<Madeira> madeiras = madeiraRepository.findAll();
 		mv.addObject("madeiras", madeiras);
 		
 		Iterable<Reflorestamento> reflorestamento = reflorestRepository.findAll();
 		mv.addObject("reflorestamento", reflorestamento);
+		
+		
 		
 		double nd = 0;
 		for (Madeira madeira : madeiras) {
@@ -66,6 +72,10 @@ public class MadeiraController {
 	@RequestMapping(value = "/cadastrar-madeira", method = RequestMethod.GET)
 	public ModelAndView cadastrarMadeira() {
 		ModelAndView mv = new ModelAndView("dashboard/cadastrarMadeira");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usuario = auth.getName();
+		mv.addObject("nomeUser", ur.findByLogin(usuario).getNomeCompleto());
 		
 		return mv;
 	}
@@ -92,6 +102,10 @@ public class MadeiraController {
 	@RequestMapping(value = "/cadastrar-reflorestamento", method = RequestMethod.GET)
 	public ModelAndView cadastrarReflorestamento() {
 		ModelAndView mv = new ModelAndView("dashboard/informarReflorestamento");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String usuario = auth.getName();
+		mv.addObject("nomeUser", ur.findByLogin(usuario).getNomeCompleto());
 		
 		return mv;
 	}

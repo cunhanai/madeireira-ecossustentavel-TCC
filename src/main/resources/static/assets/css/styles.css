@@ -661,7 +661,7 @@
     top: 50%;
     width: 4px;
     height: 36px;
-    background: var(--primary-color);
+    background: #F8CB3F;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
 }
@@ -687,7 +687,7 @@ ul.breadcrumbs {
     display: block;
     font-size: 14px;
     font-weight: 400;
-    color: #7801ff;
+    color: #0bb087;
     letter-spacing: 0;
     margin-right: 16px;
     position: relative;
@@ -717,8 +717,8 @@ ul.breadcrumbs {
             align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    background: -webkit-linear-gradient(left, #8914fe 0%, #8063f5 100%);
-    background: linear-gradient(to right, #8914fe 0%, #8063f5 100%);
+    background: -webkit-linear-gradient(left, #0bb087 0%, #12C498 100%);
+    background: linear-gradient(to right, #0bb087 0%, #12C498 100%);
     padding: 17px 38px;
     position: relative;
 }
@@ -2356,7 +2356,7 @@ table.dataTable thead td {
 
 .form-gp.focused label {
     top: -15px;
-    color: #7e74ff;
+    color: #edc137;
 }
 
 .form-gp input {
@@ -2385,7 +2385,7 @@ table.dataTable thead td {
 .form-gp i {
     position: absolute;
     right: 5px;
-    color: #7e74ff;
+    color: #edc137;
     font-size: 16px;
 }
 
@@ -2418,7 +2418,7 @@ table.dataTable thead td {
 }
 
 .submit-btn-area button:hover {
-    background: #2c71da;
+    background: #0bb087;
     color: #ffffff;
 }
 
@@ -2714,7 +2714,7 @@ table.dataTable thead td {
 }
 
 .offset-menu-tab li a.active {
-    color: #853bfa;
+    color: #edc137;
 }
 
 .offset-menu-tab li a:before {
@@ -2723,7 +2723,7 @@ table.dataTable thead td {
     bottom: 0;
     height: 5px;
     width: 100%;
-    background: #853bfa;
+    background: #edc137;
     border-radius: 30px;
     -webkit-transition: all 0.3s cubic-bezier(0.91, 0.31, 0.31, 0.92) 0s;
     transition: all 0.3s cubic-bezier(0.91, 0.31, 0.31, 0.92) 0s;
